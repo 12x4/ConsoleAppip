@@ -4,175 +4,323 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 class Point
 {
-    public double x = 0;
-    public double y = 0;
+    public double x, y;
 
-    public Point(double x, double y)
+    public Point()
+    {
+        Console.WriteLine("Write x :");
+        this.x = Double.Parse(Console.ReadLine());
+        Console.WriteLine("Write y :");
+        this.y = Double.Parse(Console.ReadLine());
+
+    }
+
+    Point(double x, double y)
     {
         this.x = x;
         this.y = y;
     }
-    public Point()
-    {
-        Console.WriteLine("Write x=");
-        this.x = int.Parse(Console.ReadLine());
-        Console.WriteLine("Write x=");
-        this.y = int.Parse(Console.ReadLine());
-    }
-
 }
 
-namespace ConsoleAppip
-{ 
+
+namespace lowTasks
+{
     internal class Program
     {
         static void Main(string[] args)
         {
-            switch (int.Parse(Console.ReadLine()))
+            task2_5();
+        }
+
+        static void task1_1()
+        {
+            Point t = new Point();
+            double r = 9;
+
+            if (t.x * t.x + t.y * t.y <= r && t.y >= 0)
             {
-                case 1:Console.WriteLine(task1(Double.Parse(Console.ReadLine()))); break;
-                case 2:Console.WriteLine(task2(Double.Parse(Console.ReadLine()))); break;
-                case 3:Console.WriteLine(task3(Double.Parse(Console.ReadLine()), Double.Parse(Console.ReadLine()))); break;
-                case 4:Console.WriteLine(task4(Double.Parse(Console.ReadLine()), Double.Parse(Console.ReadLine()))); break;
-                case 5:Console.WriteLine(task5(new Point(), new Point(), new Point())); break;
-                case 6:Console.WriteLine(task6(Double.Parse(Console.ReadLine()), Double.Parse(Console.ReadLine()))); break;
-                case 7:Console.WriteLine(task7(Double.Parse(Console.ReadLine()), Double.Parse(Console.ReadLine()))); break;
-                case 8:Console.WriteLine(task8(Double.Parse(Console.ReadLine()), Double.Parse(Console.ReadLine()), Double.Parse(Console.ReadLine()))); break;
-                case 9:Console.WriteLine(task9(Double.Parse(Console.ReadLine()), Double.Parse(Console.ReadLine()), Double.Parse(Console.ReadLine()), Double.Parse(Console.ReadLine()), Double.Parse(Console.ReadLine()), Double.Parse(Console.ReadLine()))); break;
-            }            
+                if (t.x * t.x + t.y * t.y < r) Console.WriteLine("Yes");
+                else Console.WriteLine("On the border");
+            }
+            else { Console.WriteLine("No"); }
         }
 
-        static double task1(double s)
-        {   
-
-            return Math.Sqrt(s) * 4;
-        }
-
-        static double task2(double p)
+        static void task1_2()
         {
-            return (p/3)*(Math.Sqrt(3) * (p / 3));
+            Point t = new Point();
+            double r = 81;
+
+            if (t.x * t.x + t.y * t.y <= r && t.x >= 0)
+            {
+                if (t.x * t.x + t.y * t.y < r) Console.WriteLine("Yes");
+                else Console.WriteLine("On the border");
+            }
+            else { Console.WriteLine("No"); }
         }
 
-        static double task3(double a, double b)
+        static void task1_3()
         {
-            return (Math.Pow(a, 3) + Math.Pow(b, 3)) / 2;
+            Point t = new Point();
+            double R = 100, r = 25;
+
+            if (t.x * t.x + t.y * t.y <= R && t.x * t.x + t.y * t.y >= r && t.y >= 0)
+            {
+                if (t.x * t.x + t.y * t.y < R && t.x * t.x + t.y * t.y > r) Console.WriteLine("Yes");
+                else Console.WriteLine("On the border");
+            }
+            else { Console.WriteLine("No"); }
         }
 
-        static double task4(double a, double b)
+        static void task1_4()
         {
-            return Math.Sqrt(Math.Abs(a * b));
+            Point t = new Point();
+            double R = 64, r = 9;
+
+            if (t.x * t.x + t.y * t.y <= R && t.x * t.x + t.y * t.y >= r && t.x <= 0)
+            {
+                if (t.x * t.x + t.y * t.y < R && t.x * t.x + t.y * t.y > r) Console.WriteLine("Yes");
+                else Console.WriteLine("On the border");
+            }
+            else { Console.WriteLine("No"); }
         }
 
-        static double task5(Point a1, Point a2, Point a3)
+        static void task1_5()
         {
-            return  Math.Abs((a2.x - a1.x) * (a3.y - a1.y) - (a3.x - a1.x)*(a2.y - a1.y)) / 2;
+            Point t = new Point();
+            double R = 49, r = 9;
+
+            if (t.x * t.x + t.y * t.y <= R && t.x * t.x + t.y * t.y >= r)
+            {
+                if (t.x * t.x + t.y * t.y < R && t.x * t.x + t.y * t.y > r) Console.WriteLine("Yes");
+                else Console.WriteLine("On the border");
+            }
+            else { Console.WriteLine("No"); }
         }
 
-        static double task6(double r1, double r2)
+        static void task1_6()
         {
-            return Math.PI * Math.Pow(r2, 2) - Math.PI * Math.Pow(r1, 2); 
+            Point t = new Point();
+            double R = 625, r = 225;
+
+            if (t.x * t.x + t.y * t.y >= R || t.x * t.x + t.y * t.y <= r)
+            {
+                if (t.x * t.x + t.y * t.y > R || t.x * t.x + t.y * t.y < r) Console.WriteLine("Yes");
+                else Console.WriteLine("On the border");
+            }
+            else { Console.WriteLine("No"); }
         }
 
-        static double task7(double r, double a)
+        static void task1_7()
         {
-            return Math.PI * Math.Pow(r, 2) - Math.Sqrt(3) * a * a;
+            Point t = new Point();
+            double R = 225, r = 0;
+
+            if (t.x * t.x + t.y * t.y <= R && t.x * t.x + t.y * t.y >= r && t.y >= 0 && Math.Abs(t.y) >= Math.Abs(t.x))
+            {
+                if (t.x * t.x + t.y * t.y < R && t.x * t.x + t.y * t.y > r && Math.Abs(t.x) != Math.Abs(t.y)) Console.WriteLine("Yes");
+                else Console.WriteLine("On the border");
+            }
+            else { Console.WriteLine("No"); }
         }
 
-        static double task8(double b, double n, double q)
+        static void task1_8()
         {
-            return b * (Math.Pow(q, n) - 1) / (q - 1);
+            Point t = new Point();
+            double R = 625, r = 0;
+
+            if (t.x * t.x + t.y * t.y <= R && t.x * t.x + t.y * t.y >= r && t.y <= 0 && Math.Abs(t.y) >= Math.Abs(t.x))
+            {
+                if (t.x * t.x + t.y * t.y < R && t.x * t.x + t.y * t.y > r && Math.Abs(t.x) != Math.Abs(t.y)) Console.WriteLine("Yes");
+                else Console.WriteLine("On the border");
+            }
+            else { Console.WriteLine("No"); }
         }
 
-        static Point task9(double b, double f, double c, double e, double a, double d)
+        static void task2_1()
         {
-            double x = (b * f - c * e) / (a * e - b * d);
-            double y = (a * x + c) / (b * -1);
+            Console.Write("Введите порядковый номер дня недели (от 1 до 7): ");
+            int dayNumber = Convert.ToInt32(Console.ReadLine());
 
-            return new Point(x, y);
+            string dayName;
+
+            switch (dayNumber)
+            {
+                case 1:
+                    dayName = "Понедельник";
+                    break;
+                case 2:
+                    dayName = "Вторник";
+                    break;
+                case 3:
+                    dayName = "Среда";
+                    break;
+                case 4:
+                    dayName = "Четверг";
+                    break;
+                case 5:
+                    dayName = "Пятница";
+                    break;
+                case 6:
+                    dayName = "Суббота";
+                    break;
+                case 7:
+                    dayName = "Воскресенье";
+                    break;
+                default:
+                    dayName = "Неверный ввод! Порядковый номер дня недели должен быть от 1 до 7.";
+                    break;
+            }
+
+            Console.WriteLine(dayName);
+
         }
 
-        // Задачи без оператора IF
+        static void task2_2()
+        {
+            Console.Write("Введите порядковый номер месяца (от 1 до 12): ");
+            int monthNumber = Convert.ToInt32(Console.ReadLine());
 
-        //static void taskX(int n)
-        //{
-        //    switch (n)
-        //    {
-        //        case 1:
-        //            // 10
-        //            int x = 12 > 0 ? (12) : (0);
-        //            break;
-        //        case 2:
-        //            // 11
-        //            int y = 12 % 2 == 1 ? (1) : (0);
-        //            break;
-        //        case 3:
-        //            // 12
-        //            int z = 45 % 10 > 45 / 10 ? (45 % 10) : (45 / 10);
-        //            break;
-        //        case 4:
-        //            // 13
-        //            int A = 10;
-        //            int q = (45 % 10 + 45 / 10) % A == 0 ? (1) : (0);
-        //            break;
-        //        case 5:
-        //            // 14
-        //            int a = 1, b = 2, c = 3, result = 0;
-        //            result = (a >= b) || (a >= c) ? (a) : (result);
-        //            result = (b >= a) || (b >= c) ? (b) : (result);
-        //            result = (c >= b) || (c >= a) ? (c) : (result);
+            if (monthNumber < 1 || monthNumber > 12)
+            {
+                Console.WriteLine("Ошибка ввода! Введен неверный номер месяца.");
+            }
+            else
+            {
+                // Количество месяцев в году
+                const int monthsInYear = 12;
 
-        //            Console.WriteLine(result);
-        //            break;
-        //        case 6:
-        //            // 15
-        //            double a = Double.Parse(Console.ReadLine()), b = Double.Parse(Console.ReadLine()), c = Double.Parse(Console.ReadLine());
-        //            double D;
-        //            D = Math.Pow(b, 2) - 4 * a * c;
-        //            int gg = D == 0 ? (1) : (0);
-        //            gg = D > 0 ? (2) : (0);
+                // Вычисляем количество месяцев, оставшихся до конца года
+                int remainingMonths = monthsInYear - monthNumber;
 
-        //            switch (gg)
-        //            {
-        //                case 1:
-        //                    Console.WriteLine("Один корень ->", (b * b) / (2 * a) * -1);
-        //                    break;
+                Console.WriteLine($"До конца года осталось {remainingMonths} месяц(ев).");
+            }
+        }
 
-        //                case 2:
-        //                    Console.WriteLine("Два корня ->", ((b * -1) - Math.Sqrt(D)) / (2 * a), ((b * -1) + Math.Sqrt(D)) / (2 * a));
-        //                    break;
-        //                default:
-        //                    Console.WriteLine("Нет корней");
-        //                    break;
-        //            }
-        //            break;
-        //        case 7:
-        //            // 16
-        //            bool f = (1 + 2 + 3 + 4) % 2 == 0 ? true : false;
-        //            break;
-        //        case 8:
-        //            // 17
-        //            f = (a + b > c && a + c > b && c + b > a) ? true : false;
-        //            break;
-        //        case 9:
-        //            //18
-        //            int a2 = 0, b2 = 0, c2 = 0;
-        //            //f = a + b > c && a + c > b && c + b > a && (b2 == (a2 + c2) || c2 == (a2 + b2) || a2 = (c2 + b2)) ? true : false;
-        //            break;
-        //        case 10:
-        //            //19
-        //            f = (a + b > c && a + c > b && c + b > a && (a == c || c == b || b == a)) ? true : false;
-        //            break;
-        //        case 11:
-        //            //20
-        //            f = (a == c && c == b && b == a) ? true : false;
-        //            break;
+        static void task2_3()
+        {
+            Console.Write("Введите количество баллов (от 0 до 100): ");
+            int score = Convert.ToInt32(Console.ReadLine());
 
-          //  }
+            string grade;
 
-        //}
+            if (score >= 90 && score <= 100)
+            {
+                grade = "Отлично";
+            }
+            else if (score >= 70 && score < 90)
+            {
+                grade = "Хорошо";
+            }
+            else if (score >= 50 && score < 70)
+            {
+                grade = "Удовлетворительно";
+            }
+            else if (score >= 0 && score < 50)
+            {
+                grade = "Неудовлетворительно";
+            }
+            else
+            {
+                grade = "Некорректное значение баллов!";
+            }
+
+            Console.WriteLine(grade);
+        }
+
+        static void task2_4()
+        {
+            Console.Write("Введите год: ");
+            int year = Convert.ToInt32(Console.ReadLine());
+
+            string animal = "";
+
+            // Восточный календарь начинается с 1924 года
+            int cycleStartYear = 1924;
+            int cyclePosition = (year - cycleStartYear) % 12;
+
+            switch (cyclePosition)
+            {
+                case 0:
+                    animal = "Крыса";
+                    break;
+                case 1:
+                    animal = "Бык";
+                    break;
+                case 2:
+                    animal = "Тигр";
+                    break;
+                case 3:
+                    animal = "Кролик";
+                    break;
+                case 4:
+                    animal = "Дракон";
+                    break;
+                case 5:
+                    animal = "Змея";
+                    break;
+                case 6:
+                    animal = "Лошадь";
+                    break;
+                case 7:
+                    animal = "Овца";
+                    break;
+                case 8:
+                    animal = "Обезьяна";
+                    break;
+                case 9:
+                    animal = "Петух";
+                    break;
+                case 10:
+                    animal = "Собака";
+                    break;
+                case 11:
+                    animal = "Свинья";
+                    break;
+            }
+
+            Console.WriteLine($"Животное, символизирующее {year} год по восточному календарю: {animal}");
+        }
+
+        static void task2_5()
+        {
+            Console.Write("Введите возраст: ");
+            int age = Convert.ToInt32(Console.ReadLine());
+
+            string category;
+
+            if (age < 1)
+            {
+                category = "Младенец";
+            }
+            else if (age >= 1 && age <= 11)
+            {
+                category = "Ребенок";
+            }
+            else if (age >= 12 && age <= 15)
+            {
+                category = "Подросток";
+            }
+            else if (age >= 16 && age <= 25)
+            {
+                category = "Юноша";
+            }
+            else if (age >= 26 && age <= 70)
+            {
+                category = "Мужчина";
+            }
+            else if (age > 70)
+            {
+                category = "Старик";
+            }
+            else
+            {
+                category = "Некорректный возраст!";
+            }
+
+            Console.WriteLine(category);
+        }
 
 
 
