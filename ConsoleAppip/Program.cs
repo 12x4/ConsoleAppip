@@ -4,6 +4,10 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using dz6;
+
+
 
 class Point
 {
@@ -33,7 +37,7 @@ namespace lowTasks
         static void Main(string[] args)
         {
 
-            modul_2.task_10();
+            dz6.modul_2.task_1();
 
         }
     }
