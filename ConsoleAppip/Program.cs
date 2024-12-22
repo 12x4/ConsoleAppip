@@ -38,7 +38,8 @@ namespace lowTasks
         static void Main(string[] args)
         {
 
-            dz6.modul_4.task_5();
+            dz7.modul_2.task_7();
+
 
         }
     }
