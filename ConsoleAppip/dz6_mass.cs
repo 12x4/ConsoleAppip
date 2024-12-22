@@ -300,7 +300,7 @@ namespace dz6
     {
         public static void task_1()
         {
-            int[][] mass = get_mssNNrnd(3);
+            int[][] mass = get_mssNNrnd(3, 0, 5);
             print_msIntNN(mass);
 
             int summ = 0;
@@ -317,7 +317,7 @@ namespace dz6
 
         public static void task_2()
         {
-            int[][] mass = get_mssNNrnd();
+            int[][] mass = get_mssNNrnd(4);
             print_msIntNN(mass);
 
             int rev = 0;
