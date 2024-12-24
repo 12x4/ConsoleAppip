@@ -171,13 +171,13 @@ namespace dz7
 
             for (int i = 0; i < absLow.Length; i++)
             {
-                strWrt.Replace(" а ", " ");
-                strWrt.Replace(" " + absUp[i] + " ", " ");
+                strWrt = strWrt.Replace(" а ", " ");
+                strWrt = strWrt.Replace(" " + absUp[i] + " ", " ");
 
                 for (int j = 0; j < num.Length; j++)
                 {
-                    strWrt.Replace(" " + absLow[i] + num[j], " " + num[j]);
-                    strWrt.Replace(" " + absUp[i] + num[j], " " + num[j]);
+                    strWrt = strWrt.Replace(" " + absLow[i] + num[j], " " + num[j]);
+                    strWrt = strWrt.Replace(" " + absUp[i] + num[j], " " + num[j]);
 
                 }
             }

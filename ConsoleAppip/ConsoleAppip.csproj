@@ -46,6 +46,7 @@
     <Compile Include="dz5_recursii.cs" />
     <Compile Include="dz6_mass.cs" />
     <Compile Include="dz7_string.cs" />
+    <Compile Include="dz8_regular_expressions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
