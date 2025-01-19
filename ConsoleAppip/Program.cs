@@ -41,7 +41,7 @@ namespace lowTasks
     {
         static void Main(string[] args)
         {
-            dz9.files.task_4();
+            Console.WriteLine((int)'Z');
         }
     }
 }
