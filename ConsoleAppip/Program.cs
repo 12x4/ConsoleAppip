@@ -8,6 +8,8 @@ using System.Xml.Serialization;
 using dz6;
 using dz5;
 using dz9;
+using new_word_CLass;
+using System.Text.RegularExpressions;
 
 using System.Diagnostics;
 using System.Linq.Expressions;
@@ -41,7 +43,41 @@ namespace lowTasks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine((int)'Z');
+            //RegexTwo reC = new RegexTwo();
+            //Regex reg = new Regex(@"\D+", RegexOptions.Multiline);
+
+            //string target = "g09ugdg0df0909d  0fg 09dfgd99dKJNJ";
+
+            //reC.regexF = reg;
+            //reC.text = target;
+
+            //reC.delRegForm();
+            ////reC.writeAllContainsForms();
+
+            //Console.WriteLine(reC.text);
+
+            /////////////////////////////////////////////////////////
+
+            //DataTimeTwo data = new DataTimeTwo();
+
+            //data.dataNext();
+
+            //Console.WriteLine(data.Data);
+
+            testStringTwo();
+
+
+        }
+
+        public static void testStringTwo()
+        {
+            stringTwo _string = new stringTwo(10);
+
+            _string.Word = "Dyrak";
+
+            Console.WriteLine(_string[4]);
+
+
         }
     }
 }
