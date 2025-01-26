@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Data;
 using Microsoft.CSharp;
 using System.Runtime.Remoting.Messaging;
+using System.Runtime.CompilerServices;
 
 namespace new_word_CLass
 {
@@ -91,6 +92,64 @@ namespace new_word_CLass
                 get{ return Line[index]; }
             }
 
+        public static stringTwo operator +(stringTwo str)
+        {
+            string new_str = str.Word.ToUpper();
+            str.Word = new_str;
+
+            return str;
+        }
+
+        public static stringTwo operator -(stringTwo str)
+        {
+            string new_str = str.Word.ToLower();
+            str.Word = new_str;
+
+            return str;
+        }
+
+        public static bool operator true(stringTwo str)
+        {
+            if (str.Word == "" || str.Word == null || str.Length == 0)
+            {
+                return false;    
+            }
+
+            return true;
+        }
+
+        public static bool operator false(stringTwo str)
+        {
+            if (str.Word == "" || str.Word == null || str.Length == 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool operator &(stringTwo str, stringTwo str_2)
+        {
+            if (str.Word.ToUpper() == str_2.Word.ToUpper())
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static implicit operator string(stringTwo str)
+        {
+            return str.Word;
+        }
+
+        public static implicit operator stringTwo(string str)
+        {
+            stringTwo boom = new stringTwo(100);
+            boom.Word = str;
+            return boom; 
+        }
+
     }
 
     public class RegexTwo
@@ -162,19 +221,109 @@ namespace new_word_CLass
             }
 
         }
+
+        public static RegexTwo operator -(RegexTwo _r)
+        {
+            _r.delRegForm();
+            return _r;
+        }
+
+        public static bool operator true(RegexTwo str)
+        {
+            if (str.text == "" || str.text == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool operator false(RegexTwo str)
+        {
+            if (str.text == "" || str.text == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static RegexTwo operator +(RegexTwo _r, string str)
+        {
+            _r.text += str;
+            return _r;
+        }
+
+        public static implicit operator RegexTwo(string str)
+        {
+            RegexTwo _r = new RegexTwo();
+            _r.text = str;
+
+            return _r;
+        }
+
+        public static implicit operator string(RegexTwo _r)
+        {
+            return _r.text;
+        }
+
+        public object this[int index]
+        {
+            get
+            {
+                switch (index)
+                {
+                    case 0:
+                        {
+                            return regex;
+                        }
+                    case 1:
+                        {
+                            return input_word;
+                        }
+                    default: 
+                        {
+                            throw new Exception("You fool");
+                        }
+                }
+            }
+
+            set
+            {
+                switch (index)
+                {
+                    case 0:
+                        {
+                            regex = (Regex)value;
+                            break;
+                        }
+                    case 1:
+                        {
+                            input_word = (string)value;
+                            break;
+                        }
+                    default:
+                        {
+                            throw new Exception("You fool");
+                        }
+                }
+            }
+
+
+        }
     }
 
-    public class DataTimeTwo
+    public class DateTimeTwo
     {
 
         private DateTime data;
 
-        public DataTimeTwo(DateTime data)
+        public DateTimeTwo(DateTime data)
         {
             this.data = data;
         }
 
-        public DataTimeTwo()
+        public DateTimeTwo()
         {
             this.data = new DateTime(2025, 1, 1);
         }
@@ -229,5 +378,75 @@ namespace new_word_CLass
             }
         }
 
+        public static bool operator !(DateTimeTwo current_data)
+        {
+            TimeSpan boom = new TimeSpan(24, 0 , 0);
+            DateTime new_data = current_data.Data + boom;
+            if (new_data.Day == 1)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static bool operator true(DateTimeTwo current_data)
+        {
+            if (current_data.Data.Day == 1 && current_data.Data.Month == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool operator false(DateTimeTwo current_data)
+        {
+            if (current_data.Data.Day == 1 && current_data.Data.Month == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool operator &(DateTimeTwo data_1, DateTimeTwo data_2)
+        {
+            if (data_1.Data == data_2.Data)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static implicit operator string(DateTimeTwo current_data)
+        {
+            return current_data.Data.ToString();
+        }
+
+        public static implicit operator DateTimeTwo(string str)
+        {
+            DateTimeTwo new_data = new DateTimeTwo();
+
+            //string to DateTime
+            new_data.Data = DateTime.Parse(str);
+
+            return new_data;
+        }
+
+        public DateTime this[int index]
+        {
+            get
+            {
+                TimeSpan days = new TimeSpan(24 * Math.Abs(index), 0, 0);
+
+                if (index > 0)
+                {
+                    return Data + days;
+                }
+                else
+                {
+                    return Data - days;
+                }
+            }
+        }
     }   
 }

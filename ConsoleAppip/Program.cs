@@ -43,41 +43,51 @@ namespace lowTasks
     {
         static void Main(string[] args)
         {
-            //RegexTwo reC = new RegexTwo();
-            //Regex reg = new Regex(@"\D+", RegexOptions.Multiline);
+            testDateTimeTwo();
+        }
 
-            //string target = "g09ugdg0df0909d  0fg 09dfgd99dKJNJ";
+        public static void testRegexTwo()
+        {
+            RegexTwo reC = new RegexTwo();
+            Regex reg = new Regex(@"\D+", RegexOptions.Multiline);
 
-            //reC.regexF = reg;
-            //reC.text = target;
+            string target = "g09ddd123ugdg0df0909d  0fg 09dfgd99dKJNJ";
+
+            reC[0] = reg;
+            reC[1] = target;
 
             //reC.delRegForm();
-            ////reC.writeAllContainsForms();
+            reC.writeAllContainsForms();
 
-            //Console.WriteLine(reC.text);
-
-            /////////////////////////////////////////////////////////
-
-            //DataTimeTwo data = new DataTimeTwo();
-
-            //data.dataNext();
-
-            //Console.WriteLine(data.Data);
-
-            testStringTwo();
-
-
+            Console.WriteLine(reC.text);
         }
 
         public static void testStringTwo()
         {
             stringTwo _string = new stringTwo(10);
+            _string = "Dyrak";
 
-            _string.Word = "Dyrak";
+            stringTwo _string_new = new stringTwo(10);
+            _string_new.Word = "Dyrak";
 
-            Console.WriteLine(_string[4]);
+            Console.WriteLine(_string & _string_new);
 
+            Console.WriteLine(_string);
 
+        }
+
+        public static void testDateTimeTwo()
+        {
+            DateTimeTwo data = new DateTimeTwo();
+
+            data.dataNext();
+
+            string data_str = data;
+
+            Console.WriteLine(data[-100]);
+
+            Console.WriteLine((DateTimeTwo)data_str);
+            Console.WriteLine(data.Data);
         }
     }
 }
