@@ -14,6 +14,9 @@ using System.Text.RegularExpressions;
 using System.Diagnostics;
 using System.Linq.Expressions;
 
+using Class_r1;
+using Class_r2;
+
 
 
 class Point
@@ -43,9 +46,85 @@ namespace lowTasks
     {
         static void Main(string[] args)
         {
-            testDateTimeTwo();
+            testPerson();
+
+            Console.WriteLine("///////////////////////////////////////////////////////");
+            Console.WriteLine("//////////////                  next task           ///");
+            Console.WriteLine("///////////////////////////////////////////////////////");
+
+            testDatabase();
         }
 
+        //Для демонстрации класса Person
+        static void testPerson()
+        {
+            // Создание базы персон
+            List<Persona> persons = new List<Persona>
+        {
+            new Applicant { LastName = "Иванов", BirthDate = new DateTime(2005, 3, 15), Faculty = "Информатика" },
+            new Student { LastName = "Петров", BirthDate = new DateTime(2003, 7, 22), Faculty = "Математика", Course = 2 },
+            new Teacher { LastName = "Сидорова", BirthDate = new DateTime(1980, 11, 5), Faculty = "Физика", Position = "Доцент", Experience = 15 }
+        };
+
+            // Вывод информации о всех персонах
+            Console.WriteLine("Информация о всех персонах:");
+            foreach (var person in persons)
+            {
+                person.DisplayInfo();
+            }
+
+            // Поиск персон в заданном диапазоне возраста
+            Console.WriteLine("\nВведите диапазон возраста (от и до):");
+            int minAge = int.Parse(Console.ReadLine());
+            int maxAge = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"\nПерсоны в возрасте от {minAge} до {maxAge} лет:");
+            foreach (var person in persons)
+            {
+                int age = person.CalculateAge();
+                if (age >= minAge && age <= maxAge)
+                {
+                    person.DisplayInfo();
+                }
+            }
+        }
+
+        //Для демонстрации класса database
+        static void testDatabase()
+        {
+            // 3. Создаем базу данных (массив) из n записей
+            PhoneDirectory[] database = new PhoneDirectory[]
+            {
+            new Person("Иванов", "ул. Ленина, 10", "123-456-789"),
+            new Organization("ООО Ромашка", "ул. Пушкина, 5", "987-654-321", "987-654-322", "Петров"),
+            new Friend("Сидоров", "ул. Гагарина, 15", "555-555-555", new DateTime(1990, 5, 15))
+            };
+
+            // Выводим полную информацию из базы данных
+            Console.WriteLine("Полная информация из базы данных:");
+            foreach (var entry in database)
+            {
+                entry.PrintInfo();
+            }
+
+            // Организуем поиск по фамилии
+            Console.Write("\nВведите фамилию для поиска: ");
+            string searchLastName = Console.ReadLine();
+
+            Console.WriteLine("\nРезультаты поиска:");
+            foreach (var entry in database)
+            {
+                if (entry.MatchesCriteria(searchLastName))
+                {
+                    entry.PrintInfo();
+                }
+            }
+        }
+
+
+
+
+        // для демонстрации класса RegexTwo
         public static void testRegexTwo()
         {
             RegexTwo reC = new RegexTwo();
@@ -62,6 +141,7 @@ namespace lowTasks
             Console.WriteLine(reC.text);
         }
 
+        // для демонстрации класса StringTwo
         public static void testStringTwo()
         {
             stringTwo _string = new stringTwo(10);
@@ -76,6 +156,7 @@ namespace lowTasks
 
         }
 
+        // для демонстрации класса DateTimeTwo
         public static void testDateTimeTwo()
         {
             DateTimeTwo data = new DateTimeTwo();

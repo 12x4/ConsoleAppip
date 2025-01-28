@@ -361,8 +361,6 @@ namespace new_word_CLass
             TimeSpan difference_date = new_data - this.data;
 
             Console.WriteLine(difference_date.Days - 1);
-
-
         }
 
         public DateTime Data
