@@ -16,6 +16,7 @@ using System.Linq.Expressions;
 
 using Class_r1;
 using Class_r2;
+using IS;
 
 
 
@@ -46,13 +47,10 @@ namespace lowTasks
     {
         static void Main(string[] args)
         {
-            testPerson();
 
-            Console.WriteLine("///////////////////////////////////////////////////////");
-            Console.WriteLine("//////////////                  next task           ///");
-            Console.WriteLine("///////////////////////////////////////////////////////");
+            //Interface_structurs_2.testTask2();
+            //Interface_structurs.testTask1();
 
-            testDatabase();
         }
 
         //Для демонстрации класса Person
@@ -120,9 +118,6 @@ namespace lowTasks
                 }
             }
         }
-
-
-
 
         // для демонстрации класса RegexTwo
         public static void testRegexTwo()
