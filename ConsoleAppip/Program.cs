@@ -5,20 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-using dz6;
-using dz5;
-using dz9;
-using new_word_CLass;
 using System.Text.RegularExpressions;
 
 using System.Diagnostics;
 using System.Linq.Expressions;
-
-using Class_r1;
-using Class_r2;
-using IS;
-
-
 
 class Point
 {
